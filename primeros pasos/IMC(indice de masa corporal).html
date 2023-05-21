@@ -1,0 +1,134 @@
+<meta charset="UTF-8">
+
+<SCript>
+
+    function saltarLinea() {//necesita un nombre explicito y tiene que abrir y cerrra parentesis
+
+        document.write("<br><br>")// declarar las instrucciones en este caso salto de linea
+    }
+
+    //funcion para imprimir con un salto de linea por debajo
+
+    function println(frase) {
+
+        document.write(frase)
+        document.write("<br>")
+    }
+
+
+    //funcion para imprimir
+
+    function print(frase) {
+
+        document.write(frase)
+
+    }
+
+
+    //funcion para redondear
+
+    function redondear(numero) {
+
+        valor = Math.round(numero)
+        return (valor);
+    }
+
+
+    // calculo mi IMC
+
+    pesoMichael = 80;
+    alturaMichael = 1.83;
+    imcMichael = pesoMichael / (alturaMichael * alturaMichael);
+
+    print(" el IMC de Michael es: " + redondear(imcMichael));
+    saltarLinea();
+
+    //calculo el IMC de Juan
+
+    pesoJuan = 60;
+    alturaJuan = 1.73;
+    imcJuan = pesoJuan / (alturaJuan * alturaJuan);
+
+    print(" el IMC de Juan es: " + redondear(imcJuan));
+    saltarLinea();
+
+    //creamos una funcion para asi evitar repetir todo el proceso al calcular otro IMC
+
+    function calcularImc(nombre, peso, altura) {
+
+        IndiceMasa = peso / (altura * altura)
+        imc = redondear(IndiceMasa)
+        muestra = println("El IMC de " + nombre + " es: " + imc);
+        return (muestra);
+
+    }
+    saltarLinea();
+
+    imcMario = calcularImc("Mario", 100, 1.86);
+    imcCamilo = calcularImc("Camilo", 70, 1.67);
+    saltarLinea();
+
+    //funcion para promediar
+
+    function promedioImc(nombre1, peso1, altura1, nombre2, peso2, altura2) {
+
+        IndiceMasa1 = peso1 / (altura1 * altura1)
+        imc1 = redondear(IndiceMasa1)
+
+        IndiceMasa2 = peso2 / (altura2 * altura2)
+        imc2 = redondear(IndiceMasa2)
+
+        println("El proedio del IMC calculado de " + nombre1 + " y " + nombre2 + " es: " + (imc1 + imc2) / 2);
+
+    }
+
+    promedioImc("Mario", 100, 1.86, "Camilo", 70, 1.67);
+
+    promedioImc("Mariana", 98, 1.96, "Adriana", 80, 1.57);
+
+    //pasamos a hacerlo interactivo
+
+    nombreUsuario = prompt("Digite su nombre");
+    pesoUsuario = prompt("Digite su peso");
+    alturaUsuario = prompt("Digite su altura");
+
+
+    function calcularImcPedir(nombreUsuario, pesoUsuario, alturaUsuario) {
+
+        IndiceMasaUsuario = pesoUsuario / (alturaUsuario * alturaUsuario)
+        imcUsuario = redondear(IndiceMasaUsuario)
+        muestraUsuario = println(nombreUsuario + " Su indice de masa muscular calculado es: " + imcUsuario)
+        return (muestraUsuario);
+
+    }
+    saltarLinea();
+    calcularImcPedir(nombreUsuario, pesoUsuario, alturaUsuario);
+
+    if (imcUsuario < 18.5) {
+
+        print("IMC mas bajo de la o recomendadao");
+
+    }
+
+    if (imcUsuario >= 18.5) {
+
+        if (imcUsuario < 25) {
+            print("IMC esta dentro de el rango recomendadao");
+        }
+    }
+
+
+    if (imcUsuario >= 25) {
+
+        if (imcUsuario < 30) {
+            print("IMC considerado en el rango de sobrepeso");
+        }
+
+    }
+
+    if (imcUsuario >= 30) {
+
+        print("IMC considerado en el rango de obesidad");
+
+    }
+</SCript>
